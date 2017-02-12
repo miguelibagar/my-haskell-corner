@@ -1,7 +1,5 @@
 type Medida = (Float,Float)
 
--- Funciones comunes --
-
 media :: [Float] -> Float
 media xs = sum xs / (fromIntegral $ length xs)
 

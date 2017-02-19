@@ -166,8 +166,8 @@ tablaDatos = [(0.247, 1.003),
     método eficiente y exacto para el cálculo de dicha constante.
   
 ```haskell  
-desv<sub>rel</sub><sub>porc</sub> :: Double -> Double -> Double
-desv<sub>rel</sub><sub>porc</sub> apr ex = 100\*((apr - ex)/ex)
+desv_rel_porc :: Double -> Double -> Double
+desv_rel_porc apr ex = 100\*((apr - ex)/ex)
 ```
 
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>

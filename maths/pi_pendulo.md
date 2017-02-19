@@ -41,7 +41,7 @@ Siguiendo la definición del MAS, podemos deducir fácilmente una expresión que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
-![alt tag](http://url/to/img.png)
+$ T = 2\pi \sqrt{\frac{L}{g}} $,
 
 donde \textit{g} es la aceleración de la
 gravedad. Nosotros la consideraremos una constante:
@@ -53,13 +53,11 @@ g = 979937.25/(100000)
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-```latex
-$T^2 = \frac{4\pi^2}{g} L$
-```
+$ T^2 = \frac{4\pi^2}{g} L $
 
 de donde podemos despejar el número que buscamos:
 
-\(\pi = \sqrt{\frac{g}{4L}} T\).
+$ \pi = \sqrt{\frac{g}{4L}} T $.
 
 # MEDICIONES EXPERIMENTALES<a id="sec-3" name="sec-3"></a>
 

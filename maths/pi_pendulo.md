@@ -28,7 +28,7 @@ un péndulo simple con la inestimable ayuda de Haskell.
 Un péndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
 masa despreciable. Si la amplitud de las oscilaciones es menor a 5º
-sexagesimales (lo equivalente a \(\dfrac{\pi}{36}\) radianes), podemos aproximar
+sexagesimales (lo equivalente a $\dfrac{\pi}{36}$ radianes), podemos aproximar
 el seno de dicho ángulo al espacio recorrido por el cuerpo macizo. En estas
 condiciones, el péndulo recibe el apodo de "simple" o "matemático", y se
 considera que oscila según los estándares del movimiento armónico simple (en

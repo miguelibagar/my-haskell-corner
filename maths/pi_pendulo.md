@@ -1,58 +1,58 @@
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="indice">
+<h2>√çndice</h2>
+<div id="text-indice">
 <ul>
-<li><a href="#sec-1">1. INTRODUCCI”N</a></li>
-<li><a href="#sec-2">2. EL P…NDULO SIMPLE</a>
+<li><a href="#sec-1">1. INTRODUCCI√ìN</a></li>
+<li><a href="#sec-2">2. EL P√âNDULO SIMPLE</a>
 <ul>
-<li><a href="#sec-2-1">2.1. Fundamentos matem·ticos</a></li>
+<li><a href="#sec-2-1">2.1. Fundamentos matem√°ticos</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. MEDICIONES EXPERIMENTALES</a></li>
-<li><a href="#sec-4">4. PROGRAMACI”N EN HASKELL</a></li>
+<li><a href="#sec-4">4. PROGRAMACI√ìN EN HASKELL</a></li>
 <li><a href="#sec-5">5. CONCLUSIONES</a></li>
 </ul>
 </div>
 </div>
 
 
-# INTRODUCCI”N<a id="sec-1" name="sec-1"></a>
+# INTRODUCCI√ìN<a id="sec-1" name="sec-1"></a>
 
-El n˙mero pi est· presente en multitud de procesos fÌsicos, y aparece como un
-sorprendente resultado de ciertos c·lculos matem·ticos. En este artÌculo
-mostraremos una forma aproximada de calcular este cÈlebre n˙mero por medio de
-un pÈndulo simple con la inestimable ayuda de Haskell.
+El n√∫mero pi est√° presente en multitud de procesos f√≠sicos, y aparece como un
+sorprendente resultado de ciertos c√°lculos matem√°ticos. En este art√≠culo
+mostraremos una forma aproximada de calcular este c√©lebre n√∫mero por medio de
+un p√©ndulo simple con la inestimable ayuda de Haskell.
 
-# EL P…NDULO SIMPLE<a id="sec-2" name="sec-2"></a>
+# EL P√âNDULO SIMPLE<a id="sec-2" name="sec-2"></a>
 
-Un pÈndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
+Un p√©ndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
-masa despreciable. Si la amplitud de las oscilaciones es menor a 5∫
+masa despreciable. Si la amplitud de las oscilaciones es menor a 5¬∫
 sexagesimales (lo equivalente a \(\dfrac{\pi}{36}\) radianes), podemos aproximar
-el seno de dicho ·ngulo al espacio recorrido por el cuerpo macizo. En estas
-condiciones, el pÈndulo recibe el apodo de "simple" o "matem·tico", y se
-considera que oscila seg˙n los est·ndares del movimiento armÛnico simple (en
+el seno de dicho √°ngulo al espacio recorrido por el cuerpo macizo. En estas
+condiciones, el p√©ndulo recibe el apodo de "simple" o "matem√°tico", y se
+considera que oscila seg√∫n los est√°ndares del movimiento arm√≥nico simple (en
 adelante MAS).
 
-## Fundamentos matem·ticos<a id="sec-2-1" name="sec-2-1"></a>
+## Fundamentos matem√°ticos<a id="sec-2-1" name="sec-2-1"></a>
 
-Siguiendo la definiciÛn del MAS, podemos deducir f·cilmente una expresiÛn que
+Siguiendo la definici√≥n del MAS, podemos deducir f√°cilmente una expresi√≥n que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
 \(T = 2\pi \sqrt{\frac{L}{g}}\),
 
-donde \textit{g} es la aceleraciÛn de la
+donde \textit{g} es la aceleraci√≥n de la
 gravedad. Nosotros la consideraremos una constante:
 
 g :: Double
 g = 979937.25/(100000)
 
-Si elevamos al cuadrado los dos miembros de la ecuaciÛn obtenemos:
+Si elevamos al cuadrado los dos miembros de la ecuaci√≥n obtenemos:
 
 \(T^2 = \frac{4\pi^2}{g} L\)
 
-de donde podemos despejar el n˙mero que buscamos:
+de donde podemos despejar el n√∫mero que buscamos:
 
 \(\pi = \sqrt{\frac{g}{4L}} T\).
 
@@ -137,7 +137,7 @@ como del periodo de las oscilaciones asociada a cada una.
 </tbody>
 </table>
 
-# PROGRAMACI”N EN HASKELL<a id="sec-4" name="sec-4"></a>
+# PROGRAMACI√ìN EN HASKELL<a id="sec-4" name="sec-4"></a>
 
 Ahora implementaremos dicho procedimiento en Haskell. Daremos como dato del
 tipo [(Double,Double)] la tabla de datos anterior.
@@ -152,19 +152,19 @@ tablaDatos = [(0.247, 1.003),
               (0.787, 1.779),
               (0.862, 1.863)]
 
-1.  Definiremos la funciÛn piPar :: (Double,Double) -> Double , tal que piPar
-    (L,T) calcula una aproximaciÛn del n˙mero &pi; para cada par de argumentos.
-2.  Meteremos todos esos datos en una lista, y calcularemos la media aritmÈtica
+1.  Definiremos la funci√≥n piPar :: (Double,Double) -> Double , tal que piPar
+    (L,T) calcula una aproximaci√≥n del n√∫mero &pi; para cada par de argumentos.
+2.  Meteremos todos esos datos en una lista, y calcularemos la media aritm√©tica
     de todos ellos.
-3.  Calcularemos el porcentaje de desviaciÛn relativa entre el valor almacenado
+3.  Calcularemos el porcentaje de desviaci√≥n relativa entre el valor almacenado
     en memoria y el valor calculado experimentalmente, para decidir si es un
-    mÈtodo eficiente y exacto para el c·lculo de dicha constante.
+    m√©todo eficiente y exacto para el c√°lculo de dicha constante.
     
     desv<sub>rel</sub><sub>porc</sub> :: Double -> Double -> Double
     desv<sub>rel</sub><sub>porc</sub> apr ex = 100\*((apr - ex)/ex)
 
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>
 
-Podemos concluir que con los datos obtenidos experimentalmente, asÌ como con el
-valor de g tomado, la desviaciÛn relativa, en tanto por ciento, es de \(4.10
-\cdot 10^-2\), lo que indica la exactitud de nuestro mÈtodo.
+Podemos concluir que con los datos obtenidos experimentalmente, as√≠ como con el
+valor de g tomado, la desviaci√≥n relativa, en tanto por ciento, es de \(4.10
+\cdot 10^-2\), lo que indica la exactitud de nuestro m√©todo.

@@ -145,6 +145,7 @@ como del periodo de las oscilaciones asociada a cada una.
 Ahora implementaremos dicho procedimiento en Haskell. Daremos como dato del
 tipo [(Double,Double)] la tabla de datos anterior.
 
+```haskell
 tablaDatos :: [(Double,Double)]
 tablaDatos = [(0.247, 1.003),
               (0.329, 1.159),
@@ -154,6 +155,7 @@ tablaDatos = [(0.247, 1.003),
               (0.721, 1.703),
               (0.787, 1.779),
               (0.862, 1.863)]
+```
 
 1.  Definiremos la función piPar :: (Double,Double) -> Double , tal que piPar
     (L,T) calcula una aproximación del número &pi; para cada par de argumentos.

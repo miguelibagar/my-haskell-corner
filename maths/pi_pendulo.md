@@ -1,3 +1,10 @@
+---
+...
+mathjax: true
+...
+
+---
+# CÁLCULO DE PI CON UN PÉNDULO SIMPLE
 <div id="indice">
 <h2>Índice</h2>
 <div id="text-indice">

@@ -52,7 +52,9 @@ g = 979937.25/(100000)
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-\(T^2 = \frac{4\pi^2}{g} L\)
+```latex
+$T^2 = \frac{4\pi^2}{g} L$
+```
 
 de donde podemos despejar el número que buscamos:
 

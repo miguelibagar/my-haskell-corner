@@ -164,9 +164,11 @@ tablaDatos = [(0.247, 1.003),
 3.  Calcularemos el porcentaje de desviación relativa entre el valor almacenado
     en memoria y el valor calculado experimentalmente, para decidir si es un
     método eficiente y exacto para el cálculo de dicha constante.
-    
-    desv<sub>rel</sub><sub>porc</sub> :: Double -> Double -> Double
-    desv<sub>rel</sub><sub>porc</sub> apr ex = 100\*((apr - ex)/ex)
+  
+```haskell  
+desv<sub>rel</sub><sub>porc</sub> :: Double -> Double -> Double
+desv<sub>rel</sub><sub>porc</sub> apr ex = 100\*((apr - ex)/ex)
+```
 
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>
 

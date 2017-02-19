@@ -167,7 +167,7 @@ tablaDatos = [(0.247, 1.003),
   
 ```haskell  
 desv_rel_porc :: Double -> Double -> Double
-desv_rel_porc apr ex = 100\*((apr - ex)/ex)
+desv_rel_porc apr ex = 100*((apr - ex)/ex)
 ```
 
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>

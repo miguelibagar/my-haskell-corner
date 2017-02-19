@@ -45,10 +45,10 @@ cuerda.
 donde \textit{g} es la aceleración de la
 gravedad. Nosotros la consideraremos una constante:
 
-´´´haskell
+```haskell
 g :: Double
 g = 979937.25/(100000)
-´´´
+```
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 

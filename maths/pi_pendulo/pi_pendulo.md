@@ -29,7 +29,7 @@ un péndulo simple con la inestimable ayuda de Haskell.
 Un péndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
 masa despreciable. Si la amplitud de las oscilaciones es menor a 5º
-sexagesimales (lo equivalente a pi/36 radianes), podemos aproximar
+sexagesimales (lo equivalente a *pi/36* radianes), podemos aproximar
 el seno de dicho ángulo al espacio recorrido por el cuerpo macizo. En estas
 condiciones, el péndulo recibe el apodo de "simple" o "matemático", y se
 considera que oscila según los estándares del movimiento armónico simple (en
@@ -41,9 +41,9 @@ Siguiendo la definición del MAS, podemos deducir fácilmente una expresión que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
-$ T = 2\pi \sqrt{\frac{L}{g}} $,
+*T = 2 * pi * sqrt(L/g),*
 
-donde \textit{g} es la aceleración de la
+donde *g* es la aceleración de la
 gravedad. Nosotros la consideraremos una constante:
 
 ```haskell
@@ -53,11 +53,14 @@ g = 979937.25/(100000)
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-$ T^2 = \frac{4\pi^2}{g} L $
+T^2 = (4 * pi^2 * L)/g
 
 de donde podemos despejar el número que buscamos:
 
-$ \pi = \sqrt{\frac{g}{4L}} T $.
+```haskell
+piExp :: Double
+piExp = sqrt(g/4L) * T
+```
 
 # MEDICIONES EXPERIMENTALES<a id="sec-3" name="sec-3"></a>
 
@@ -173,5 +176,5 @@ desv_rel_porc apr ex = 100*((apr - ex)/ex)
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>
 
 Podemos concluir que con los datos obtenidos experimentalmente, así como con el
-valor de g tomado, la desviación relativa, en tanto por ciento, es de \(4.10
-\cdot 10^-2\), lo que indica la exactitud de nuestro método.
+valor de g tomado, la desviación relativa, en tanto por ciento, es de 4.10 * 10^-2,
+lo que indica la exactitud de nuestro método.

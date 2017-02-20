@@ -163,19 +163,22 @@ tablaDatos = [(0.247, 1.003),
               (0.862, 1.863)]
 ```
 
-1.  Definiremos la función ```haskellpiPar :: (Double,Double) -> Double```
-    que calcula una aproximación del número pi para cada par de argumentos.
+1.  Definiremos la función piPar que calcula una aproximación del número pi para cada par de argumentos.
+    
     ```haskell
     piPar :: (Double,Double) -> Double
     piPar (l,t) = (t/2)*sqrt(g/l)
     ```
+    
 2.  Meteremos todos esos datos en una lista, y calcularemos la media aritmética
     de todos ellos.
+    
     ```haskell
     piExp :: Double
     piExp = media [piPar p | p <- tablaDatos]
     where media xs = sum xs / genericLength xs
     ```
+    
 3.  Calcularemos el porcentaje de desviación relativa entre el valor almacenado
     en memoria y el valor calculado experimentalmente, para decidir si es un
     método eficiente y exacto para el cálculo de dicha constante.

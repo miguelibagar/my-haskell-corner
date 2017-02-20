@@ -53,7 +53,7 @@ g = 979937.25/(100000)
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-T^2 = (4 * pi^2 * L)/g
+*T^2 = (4 * pi^2 * L)/g*
 
 de donde podemos despejar el número que buscamos:
 
@@ -176,5 +176,5 @@ desv_rel_porc apr ex = 100*((apr - ex)/ex)
 # CONCLUSIONES<a id="sec-5" name="sec-5"></a>
 
 Podemos concluir que con los datos obtenidos experimentalmente, así como con el
-valor de g tomado, la desviación relativa, en tanto por ciento, es de 4.10 * 10^-2,
+valor de g tomado, la desviación relativa, en tanto por ciento, es de *4.10 * 10^-2*,
 lo que indica la exactitud de nuestro método.

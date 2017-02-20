@@ -22,14 +22,14 @@
 El número pi está presente en multitud de procesos físicos, y aparece como un
 sorprendente resultado de ciertos cálculos matemáticos. En este artículo
 mostraremos una forma aproximada de calcular este célebre número por medio de
-un péndulo simple con la inestimable ayuda de Haskell.
+un péndulo simple con la inestimable ayuda de *Haskell*.
 
 # EL PÉNDULO SIMPLE<a id="sec-2" name="sec-2"></a>
 
 Un péndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
 masa despreciable. Si la amplitud de las oscilaciones es menor a 5º
-sexagesimales (lo equivalente a *pi/36* radianes), podemos aproximar
+sexagesimales (lo equivalente a *&pi/36* radianes), podemos aproximar
 el seno de dicho ángulo al espacio recorrido por el cuerpo macizo. En estas
 condiciones, el péndulo recibe el apodo de "simple" o "matemático", y se
 considera que oscila según los estándares del movimiento armónico simple (en
@@ -41,7 +41,7 @@ Siguiendo la definición del MAS, podemos deducir fácilmente una expresión que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
-*T = 2 * pi * sqrt(L/g),*
+*T = 2&pi * sqrt(L/g),*
 
 donde *g* es la aceleración de la
 gravedad. Nosotros la consideraremos una constante:
@@ -50,10 +50,11 @@ gravedad. Nosotros la consideraremos una constante:
 g :: Double
 g = 979937.25/(100000)
 ```
+El valor de *g* es proporcionado por el Instituto Geográfico Nacional.
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-*T^2 = (4 * pi^2 * L)/g*
+*T^2 = (4 * &pi^2 * L)/g*
 
 de donde podemos despejar el número que buscamos:
 
@@ -146,7 +147,7 @@ como del periodo de las oscilaciones asociada a cada una.
 # PROGRAMACIÓN EN HASKELL<a id="sec-4" name="sec-4"></a>
 
 Ahora implementaremos dicho procedimiento en Haskell. Daremos como dato del
-tipo [(Double,Double)] la tabla de datos anterior.
+tipo ```haskell[(Double,Double)]``` la tabla de datos anterior.
 
 ```haskell
 tablaDatos :: [(Double,Double)]
@@ -160,8 +161,8 @@ tablaDatos = [(0.247, 1.003),
               (0.862, 1.863)]
 ```
 
-1.  Definiremos la función piPar :: (Double,Double) -> Double , tal que piPar
-    (L,T) calcula una aproximación del número &pi; para cada par de argumentos.
+1.  Definiremos la función ```haskellpiPar :: (Double,Double) -> Double```
+    que calcula una aproximación del número &pi; para cada par de argumentos.
 2.  Meteremos todos esos datos en una lista, y calcularemos la media aritmética
     de todos ellos.
 3.  Calcularemos el porcentaje de desviación relativa entre el valor almacenado

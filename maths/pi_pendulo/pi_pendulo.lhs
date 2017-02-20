@@ -93,7 +93,9 @@ desv_rel_porc :: Double -> Double -> Double
 desv_rel_porc apr ex = 100*(abs(apr - ex)/ex)
 
 desv_rel_pi :: Double
-desv_rel_pi = 4.102910395947251e-2
+desv_rel_pi = desv_rel_porc piExp pi
+
+-- desv_rel_pi == 4.102910395947251e-2
 \end{code}
 
 * CONCLUSIONES

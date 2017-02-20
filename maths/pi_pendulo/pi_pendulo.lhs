@@ -1,29 +1,29 @@
-                      C¡LCULO DE PI CON UN P…NDULO SIMPLE
+                      C√ÅLCULO DE PI CON UN P√âNDULO SIMPLE
 
-* INTRODUCCI”N
-El n˙mero pi est· presente en multitud de procesos fÌsicos, y aparece como un
-sorprendente resultado de ciertos c·lculos matem·ticos. En este artÌculo
-mostraremos una forma aproximada de calcular este cÈlebre n˙mero por medio de
-un pÈndulo simple con la inestimable ayuda de Haskell.
+* INTRODUCCI√ìN
+El n√∫mero pi est√° presente en multitud de procesos f√≠sicos, y aparece como un
+sorprendente resultado de ciertos c√°lculos matem√°ticos. En este art√≠culo
+mostraremos una forma aproximada de calcular este c√©lebre n√∫mero por medio de
+un p√©ndulo simple con la inestimable ayuda de Haskell.
 
-* EL P…NDULO SIMPLE
-Un pÈndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
+* EL P√âNDULO SIMPLE
+Un p√©ndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
-masa despreciable. Si la amplitud de las oscilaciones es menor a 5∫
+masa despreciable. Si la amplitud de las oscilaciones es menor a 5¬∫
 sexagesimales (lo equivalente a $\frac{\pi}{36}$ radianes), podemos aproximar
-el seno de dicho ·ngulo al espacio recorrido por el cuerpo macizo. En estas
-condiciones, el pÈndulo recibe el apodo de "simple" o "matem·tico", y se
-considera que oscila seg˙n los est·ndares del movimiento armÛnico simple (en
+el seno de dicho √°ngulo al espacio recorrido por el cuerpo macizo. En estas
+condiciones, el p√©ndulo recibe el apodo de "simple" o "matem√°tico", y se
+considera que oscila seg√∫n los est√°ndares del movimiento arm√≥nico simple (en
 adelante MAS).
 
-** Fundamentos matem·ticos
-Siguiendo la definiciÛn del MAS, podemos deducir f·cilmente una expresiÛn que
+** Fundamentos matem√°ticos
+Siguiendo la definici√≥n del MAS, podemos deducir f√°cilmente una expresi√≥n que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
     $T = 2\pi \sqrt{\frac{L}{g}}$,
 
-donde \textit{g} es la aceleraciÛn de la
+donde \textit{g} es la aceleraci√≥n de la
 gravedad. Nosotros la consideraremos una constante:
 
 \begin{code}
@@ -33,11 +33,11 @@ g :: Double
 g = 979937.25/(100000)
 \end{code}
 
-Si elevamos al cuadrado los dos miembros de la ecuaciÛn obtenemos:
+Si elevamos al cuadrado los dos miembros de la ecuaci√≥n obtenemos:
 
     $T^2 = \frac{4\pi^2}{g} L$
 
-de donde podemos despejar el n˙mero que buscamos:
+de donde podemos despejar el n√∫mero que buscamos:
 
     $\pi = \sqrt{\frac{g}{4L}} T$.
 
@@ -56,7 +56,7 @@ como del periodo de las oscilaciones asociada a cada una.
 |   78.7 | 0.787 | 1.779 |
 |   86.2 | 0.862 | 1.863 |
 
-* PROGRAMACI”N EN HASKELL
+* PROGRAMACI√ìN EN HASKELL
 Ahora implementaremos dicho procedimiento en Haskell. Daremos como dato del
 tipo [(Double,Double)] la tabla de datos anterior.
 
@@ -72,13 +72,13 @@ tablaDatos = [(0.247, 1.003),
               (0.862, 1.863)]
 \end{code}
 
-1. Definiremos la funciÛn piPar, tal que piPar (L,T) calcula una aproximaciÛn
-   del n˙mero pi para cada par de argumentos.
-2. Meteremos todos esos datos en una lista, y calcularemos la media aritmÈtica
+1. Definiremos la funci√≥n piPar, tal que piPar (L,T) calcula una aproximaci√≥n
+   del n√∫mero pi para cada par de argumentos.
+2. Meteremos todos esos datos en una lista, y calcularemos la media aritm√©tica
    de todos ellos. 
-3. Calcularemos el porcentaje de desviaciÛn relativa entre el valor almacenado
+3. Calcularemos el porcentaje de desviaci√≥n relativa entre el valor almacenado
    en memoria y el valor calculado experimentalmente, para decidir si es un
-   mÈtodo eficiente y exacto para el c·lculo de dicha constante.
+   m√©todo eficiente y exacto para el c√°lculo de dicha constante.
 
 ** Funciones utilizadas
 \begin{code}
@@ -97,6 +97,6 @@ desv_rel_pi = 4.102910395947251e-2
 \end{code}
 
 * CONCLUSIONES
-Podemos concluir que con los datos obtenidos experimentalmente, asÌ como con el
-valor de g tomado, la desviaciÛn relativa, en tanto por ciento, es de
-$4.10 \cdot 10^{-2}$, lo que indica la exactitud de nuestro mÈtodo.
+Podemos concluir que con los datos obtenidos experimentalmente, as√≠ como con el
+valor de g tomado, la desviaci√≥n relativa, en tanto por ciento, es de
+$4.10 \cdot 10^{-2}$, lo que indica la exactitud de nuestro m√©todo.

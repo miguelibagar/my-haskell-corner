@@ -29,7 +29,7 @@ un péndulo simple con la inestimable ayuda de *Haskell*.
 Un péndulo es aquel dispositivo formado por un objeto macizo (en nuestro caso,
 una esfera) al que se le adjunta una cuerda, que supondremos inextensible y de
 masa despreciable. Si la amplitud de las oscilaciones es menor a 5º
-sexagesimales (lo equivalente a *&pi/36* radianes), podemos aproximar
+sexagesimales (lo equivalente a *pi/36* radianes), podemos aproximar
 el seno de dicho ángulo al espacio recorrido por el cuerpo macizo. En estas
 condiciones, el péndulo recibe el apodo de "simple" o "matemático", y se
 considera que oscila según los estándares del movimiento armónico simple (en
@@ -41,7 +41,7 @@ Siguiendo la definición del MAS, podemos deducir fácilmente una expresión que
 relaciona directamente el periodo de las oscilaciones con la longitud de la
 cuerda.
 
-*T = 2&pi * sqrt(L/g),*
+*T = 2 * pi * sqrt(L/g),*
 
 donde *g* es la aceleración de la
 gravedad. Nosotros la consideraremos una constante:
@@ -54,7 +54,7 @@ El valor de *g* es proporcionado por el Instituto Geográfico Nacional.
 
 Si elevamos al cuadrado los dos miembros de la ecuación obtenemos:
 
-*T^2 = (4 * &pi^2 * L)/g*
+*T^2 = (4 * pi^2 * L)/g*
 
 de donde podemos despejar el número que buscamos:
 
@@ -162,7 +162,7 @@ tablaDatos = [(0.247, 1.003),
 ```
 
 1.  Definiremos la función ```haskellpiPar :: (Double,Double) -> Double```
-    que calcula una aproximación del número &pi; para cada par de argumentos.
+    que calcula una aproximación del número pi; para cada par de argumentos.
 2.  Meteremos todos esos datos en una lista, y calcularemos la media aritmética
     de todos ellos.
 3.  Calcularemos el porcentaje de desviación relativa entre el valor almacenado

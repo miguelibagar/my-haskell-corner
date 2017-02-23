@@ -1,5 +1,7 @@
+# CÁLCULO DE PI CON EL MÉTODO DE GAUSS-LEGENDRE
+
 <div id="table-of-contents">
-<h2>Table of Contents</h2>
+<h2>Índice</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org0a690dc">1. INTRODUCCIÓN</a></li>
@@ -118,7 +120,7 @@ El número \(\pi\) aparece en el siguiente resultado:
 
 Todo lo expuesto anteriormente puede verse en el gráfico:
 
-[[![img](C:/I1M/Pi/gauss_legendre/brent-salamin_convergence.png)]]
+![Jekyll](maths/pi_gauss_legendre/brent-salamin_convergence.png)
 
 A pesar de este último inconveniente, podremos definir el algoritmo de
 Brent-Salamin en un ordenador doméstico usando *Haskell*, y con 3 ó 4 iteraciones
@@ -313,19 +315,7 @@ de la ciencia y la tecnología.
 
 <a id="orgf19e42d"></a>
 
-# BIBLIOGRAFÍA
-
-<https://www.uam.es/personal_pdi/ciencias/cillerue/Curso/GacRSocMatEsp6.pdf>
-(Historia, final prr 1)
-<https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm> (Algoritmo,
-memoria requerida propiedades)
-<https://en.wikipedia.org/wiki/Chronology_of_computation_of_%CF%80> (Historia,
-final prr 3)
-<http://www.mat.ucm.es/~rrdelrio/ponencias/algoritmos_pi_upm.pdf> (Historia,
-final prr 2)
-<https://www.fayerwayer.com/2009/08/nuevo-record-del-calculo-de-decimales-de-%CF%80/>
-(Historia, prr 3 despues de los decimales que consiguieron)
-
+--------------------------
 
 # Footnotes
 

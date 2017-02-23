@@ -2,18 +2,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0a690dc">1. INTRODUCCI”N</a></li>
+<li><a href="#org0a690dc">1. INTRODUCCI√ìN</a></li>
 <li><a href="#org5122df9">2. UN POCO DE HISTORIA</a></li>
-<li><a href="#orga34dea8">3. DEFINICI”N DEL ALGORITMO</a></li>
+<li><a href="#orga34dea8">3. DEFINICI√ìN DEL ALGORITMO</a></li>
 <li><a href="#orgc97fad7">4. PROPIEDADES DEL ALGORITMO</a></li>
-<li><a href="#orgdf2654b">5. IMPLEMENTACI”N EN <i>HASKELL</i></a>
+<li><a href="#orgdf2654b">5. IMPLEMENTACI√ìN EN <i>HASKELL</i></a>
 <ul>
 <li><a href="#org424eedb">5.1. Definiciones</a></li>
-<li><a href="#orgf8873d8">5.2. An·lisis del procedimiento</a></li>
+<li><a href="#orgf8873d8">5.2. An√°lisis del procedimiento</a></li>
 </ul>
 </li>
 <li><a href="#orgd13cd3e">6. CONCLUSIONES</a></li>
-<li><a href="#orgf19e42d">7. BIBLIOGRAFÕA</a></li>
+<li><a href="#orgf19e42d">7. BIBLIOGRAF√çA</a></li>
 </ul>
 </div>
 </div>
@@ -21,56 +21,56 @@
 
 <a id="org0a690dc"></a>
 
-# INTRODUCCI”N
+# INTRODUCCI√ìN
 
-Ya coment·bamos la forma de calcular \(\pi\) de forma experimental usando un
-pÈndulo matem·tico o simple. En esta ocasiÛn, expondremos un mÈtodo (esta vez
-puramente matem·tico) de calcular esta cÈlebre constante, conocido por el nombre de sus
-desarrolladores: el *mÈtodo de Brent-Salamin*. TambiÈn definiremos aquellas
-funciones que pueden sernos ˙tiles para calcularla con *Haskell*.
+Ya coment√°bamos la forma de calcular \(\pi\) de forma experimental usando un
+p√©ndulo matem√°tico o simple. En esta ocasi√≥n, expondremos un m√©todo (esta vez
+puramente matem√°tico) de calcular esta c√©lebre constante, conocido por el nombre de sus
+desarrolladores: el *m√©todo de Brent-Salamin*. Tambi√©n definiremos aquellas
+funciones que pueden sernos √∫tiles para calcularla con *Haskell*.
 
 
 <a id="org5122df9"></a>
 
 # UN POCO DE HISTORIA
 
-Carl F. Gauss desarrollÛ, hacia 1790, un proceso iterativo basado en
-las medias aritmÈtica y geomÈtrica. Primero se definÌan los tÈrminos iniciales
+Carl F. Gauss desarroll√≥, hacia 1790, un proceso iterativo basado en
+las medias aritm√©tica y geom√©trica. Primero se defin√≠an los t√©rminos iniciales
 
 \begin{equation*}
 a_1 = \frac{x+y}{2} \text{\hspace{0.7cm} y \hspace{0.7cm}}  g_1 = \sqrt {x \cdot y}
 \end{equation*}
 
-donde \(a_1\) representa la media aritmÈtica y \(g_1\) la media geomÈtrica de *x* e *y*.
+donde \(a_1\) representa la media aritm√©tica y \(g_1\) la media geom√©trica de *x* e *y*.
 
-Tras ello estableciÛ las sucesiones por recurrencia:
+Tras ello estableci√≥ las sucesiones por recurrencia:
 
 \begin{equation*}
 a_{n+1} = \frac{a_n + g_n}{2} \text{ y }  g_{n+1} = sqrt (a_n \cdot g_n).
 \end{equation*}
 
-Estas dos progresiones convergen y hacia el mismo lÌmite. Gauss lo denominÛ la
-media aritmÈtico-geomÈtrica de *x* e *y*<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. DedicÛ alg˙n tiempo a estudiar
-las propiedades que tenÌa, pero no las considerÛ demasiado relevantes.
+Estas dos progresiones convergen y hacia el mismo l√≠mite. Gauss lo denomin√≥ la
+media aritm√©tico-geom√©trica de *x* e *y*<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. Dedic√≥ alg√∫n tiempo a estudiar
+las propiedades que ten√≠a, pero no las consider√≥ demasiado relevantes.
 
-Casi doscientos aÒos despuÈs, los matem·ticos Eugene Salamin y Richard P. Brent
+Casi doscientos a√±os despu√©s, los matem√°ticos Eugene Salamin y Richard P. Brent
 retomaron las investigaciones de Gauss sobre la media
-aritmÈtico-geomÈtrica. Por separado, concibieron un algoritmo que permitÌa
-calcular \(\pi\) bas·ndose en el concepto gaussiano y en ideas de ArquÌmedes. En
-1976 Brent y Salamin consiguieron el rÈcord al ser capaces de calcularlo con
-tres millones de cifras decimales, cuando hasta el momento sÛlo se habÌa
-hallado un millÛn.
+aritm√©tico-geom√©trica. Por separado, concibieron un algoritmo que permit√≠a
+calcular \(\pi\) bas√°ndose en el concepto gaussiano y en ideas de Arqu√≠medes. En
+1976 Brent y Salamin consiguieron el r√©cord al ser capaces de calcularlo con
+tres millones de cifras decimales, cuando hasta el momento s√≥lo se hab√≠a
+hallado un mill√≥n.
 
 En 2009, un equipo de investigadores dirigido por el profesor Daisuke Takahashi
-(Universidad de Tsukuba, JapÛn) consiguiÛ el rÈcord mundial sobre el c·lculo de los
-dÌgitos de pi. Consiguieron obtener 2 576 980 377 524 decimales en tres dÌas,
-usando 640 ordenadores y el mÈtodo que describimos. Se necesitaron 13.5
+(Universidad de Tsukuba, Jap√≥n) consigui√≥ el r√©cord mundial sobre el c√°lculo de los
+d√≠gitos de pi. Consiguieron obtener 2 576 980 377 524 decimales en tres d√≠as,
+usando 640 ordenadores y el m√©todo que describimos. Se necesitaron 13.5
 terabytes para calcularlos. 
 
 
 <a id="orga34dea8"></a>
 
-# DEFINICI”N DEL ALGORITMO
+# DEFINICI√ìN DEL ALGORITMO
 
 Definiremos cuatro sucesiones por recurrencia, que llamaremos \(a_n, b_n, t_n y p_n\).
 
@@ -90,10 +90,10 @@ p_{n+1} = 2 \cdot p_n
 \end{array}
 \end{equation*}
 
-Donde *mA* y *mG* representan las medias aritmÈtica y geomÈtrica del par de
+Donde *mA* y *mG* representan las medias aritm√©tica y geom√©trica del par de
 valores representado.
 
-El n˙mero \(\pi\) aparece en el siguiente resultado:
+El n√∫mero \(\pi\) aparece en el siguiente resultado:
 
 \begin{displaymath}
 \pi = lim_{n \to \infty} \frac{(a_{n+1} + b_{n+1})^2}{4 t_{n+1}}
@@ -104,32 +104,32 @@ El n˙mero \(\pi\) aparece en el siguiente resultado:
 
 # PROPIEDADES DEL ALGORITMO
 
--   **Convergencia del mÈtodo:** Puede comprobarse que el algoritmo de
+-   **Convergencia del m√©todo:** Puede comprobarse que el algoritmo de
     Brent-Salamin converge hacia \(\pi\), y con orden 2. Es decir, al pasar de *n*
     a *n+1* obtenemos el doble de decimales correctos<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> de pi.
 -   **Velocidad de convergencia:** Converge con una velocidad muy grande. Con
-    sÛlo veinticinco iteraciones produce cuarenta y cinco millones de
+    s√≥lo veinticinco iteraciones produce cuarenta y cinco millones de
     cifras correctas de \(\pi\).<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
--   **Memoria requerida:** Es el punto dÈbil del algoritmo. Este mÈtodo requiere
+-   **Memoria requerida:** Es el punto d√©bil del algoritmo. Este m√©todo requiere
     una gran cantidad de memoria conforme *n* va aumentando. Es por ello
-    que a veces se prefieren otros mÈtodos que, aunque no convergen tan
-    r·pido, requieren un menor n˙mero de c·lculos (como, por ejemplo, las
-    fÛrmulas de Machin).<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+    que a veces se prefieren otros m√©todos que, aunque no convergen tan
+    r√°pido, requieren un menor n√∫mero de c√°lculos (como, por ejemplo, las
+    f√≥rmulas de Machin).<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 
-Todo lo expuesto anteriormente puede verse en el gr·fico:
+Todo lo expuesto anteriormente puede verse en el gr√°fico:
 
 [[![img](C:/I1M/Pi/gauss_legendre/brent-salamin_convergence.png)]]
 
-A pesar de este ˙ltimo inconveniente, podremos definir el algoritmo de
-Brent-Salamin en un ordenador domÈstico usando *Haskell*, y con 3 Û 4 iteraciones
-habremos calculado \(\pi\) con quince decimales exactos (el m·ximo n˙mero de dÌgitos
-que se nos muestra para un decimal de tipo \texttt{Double}). Un resultado m·s que
+A pesar de este √∫ltimo inconveniente, podremos definir el algoritmo de
+Brent-Salamin en un ordenador dom√©stico usando *Haskell*, y con 3 √≥ 4 iteraciones
+habremos calculado \(\pi\) con quince decimales exactos (el m√°ximo n√∫mero de d√≠gitos
+que se nos muestra para un decimal de tipo \texttt{Double}). Un resultado m√°s que
 aceptable.
 
 
 <a id="orgdf2654b"></a>
 
-# IMPLEMENTACI”N EN *HASKELL*
+# IMPLEMENTACI√ìN EN *HASKELL*
 
 
 <a id="org424eedb"></a>
@@ -164,9 +164,9 @@ Las funciones que utilizaremos en *Haskell* son las siguientes:
 
 <a id="orgf8873d8"></a>
 
-## An·lisis del procedimiento
+## An√°lisis del procedimiento
 
-Hemos realizado un total de 14 ejecuciones de la funciÛn \texttt{piGauss} y hemos
+Hemos realizado un total de 14 ejecuciones de la funci√≥n \texttt{piGauss} y hemos
 anotado el tiempo empleado para cada una de ellas. Antes de cada una hemos
 cargado de nuevo el archivo para borrar de la memoria los resultados
 anteriores.
@@ -274,46 +274,46 @@ Organizando las mediciones en una tabla, obtenemos:
 </tbody>
 </table>
 
-Hemos de tener en cuenta que la precisiÛn del cronÛmetro integrado en Emacs es
+Hemos de tener en cuenta que la precisi√≥n del cron√≥metro integrado en Emacs es
 muy baja (0.01 s), por lo que para estudiar la tendencia del
-tiempo, los valores m·s representativos son aquellos a partir de \(n = 11\).
+tiempo, los valores m√°s representativos son aquellos a partir de \(n = 11\).
 
-Representemos estas medidas en una gr·fica con ayuda de *gnuplot*:
+Representemos estas medidas en una gr√°fica con ayuda de *gnuplot*:
 
 [[![img](C:/I1M/Pi/gauss_legendre/tiempo_usado.png)]]
 
-Podemos concluir que el tiempo empleado para calcular cada tÈrmino \texttt{piGauss}
-aumenta de forma exponencial con una razÛn aproximada de 2. Esto es
-consecuencia directa del orden del estudiado mÈtodo iterativo.
+Podemos concluir que el tiempo empleado para calcular cada t√©rmino \texttt{piGauss}
+aumenta de forma exponencial con una raz√≥n aproximada de 2. Esto es
+consecuencia directa del orden del estudiado m√©todo iterativo.
 
 
 <a id="orgd13cd3e"></a>
 
 # CONCLUSIONES
 
-El mÈtodo de Brent-Salamin es un algoritmo potente y que converge r·pidamente,
-pero no es el m·s recomendado si queremos calcular pi con varias cifras
-decimales. A dÌa de hoy, el rÈcord se encuentra en los 22 459 157 718 361
-decimales, calculados en 105 dÌas (a una velocidad de 2.5 millones de dÌgitos
-por segundo, en comparaciÛn de los 2.5 dÌgitos por segundo en la experiencia
+El m√©todo de Brent-Salamin es un algoritmo potente y que converge r√°pidamente,
+pero no es el m√°s recomendado si queremos calcular pi con varias cifras
+decimales. A d√≠a de hoy, el r√©cord se encuentra en los 22 459 157 718 361
+decimales, calculados en 105 d√≠as (a una velocidad de 2.5 millones de d√≠gitos
+por segundo, en comparaci√≥n de los 2.5 d√≠gitos por segundo en la experiencia
 del profesor Takahashi). Estas velocidades son mucho mayores que, por ejemplo,
-la alcanzada por el ENIAC en 1949 (calculÛ 2 037 dÌgitos en 70 horas; es decir,
-a una velocidad de \(3.36 \cdot 10^{-4}\) dÌgitos por segundo).
+la alcanzada por el ENIAC en 1949 (calcul√≥ 2 037 d√≠gitos en 70 horas; es decir,
+a una velocidad de \(3.36 \cdot 10^{-4}\) d√≠gitos por segundo).
 
 Se pone de manifiesto, por lo tanto, dos cuestiones:
 
-1.  El avance de la tecnologÌa, que permite alcanzar mayores velocidades en el
-    c·lculo de operaciones cada vez m·s complejas.
-2.  El desarrollo de nuevos mÈtodos matem·ticos, que ahorran c·lculos
-    innecesarios y proporcionan algoritmos cada vez m·s veloces.
+1.  El avance de la tecnolog√≠a, que permite alcanzar mayores velocidades en el
+    c√°lculo de operaciones cada vez m√°s complejas.
+2.  El desarrollo de nuevos m√©todos matem√°ticos, que ahorran c√°lculos
+    innecesarios y proporcionan algoritmos cada vez m√°s veloces.
 
 Es el balance equilibrado entre esos dos aspectos lo que propicia el progreso
-de la ciencia y la tecnologÌa.
+de la ciencia y la tecnolog√≠a.
 
 
 <a id="orgf19e42d"></a>
 
-# BIBLIOGRAFÕA
+# BIBLIOGRAF√çA
 
 <https://www.uam.es/personal_pdi/ciencias/cillerue/Curso/GacRSocMatEsp6.pdf>
 (Historia, final prr 1)
@@ -329,17 +329,17 @@ final prr 2)
 
 # Footnotes
 
-<sup><a id="fn.1" href="#fnr.1">1</a></sup> Para profundizar en los conceptos de media aritmÈtico-geomÈtrica,
+<sup><a id="fn.1" href="#fnr.1">1</a></sup> Para profundizar en los conceptos de media aritm√©tico-geom√©trica,
 visitar <http://en.wikipedia.org/wiki/Arithmetic-geometric_mean>.
 
 <sup><a id="fn.2" href="#fnr.2">2</a></sup> Cuando hablamos de *decimales correctos*, nos referimos a que son iguales a aquella
-secuencia de dÌgitos de \(\pi\) considerada como la de mayor exactitud. Ning˙n mÈtodo puede
+secuencia de d√≠gitos de \(\pi\) considerada como la de mayor exactitud. Ning√∫n m√©todo puede
 hallar \(\pi\) con todos sus infinitos decimales exactos.
 
 <sup><a id="fn.3" href="#fnr.3">3</a></sup> En la web
 <http://demonstrations.wolfram.com/GaussLegendreApproximationOfPi/>
-se puede ver de forma interactiva cÛmo aumentando los valores de *n*
-el n˙mero de decimales correctos es mayor.
+se puede ver de forma interactiva c√≥mo aumentando los valores de *n*
+el n√∫mero de decimales correctos es mayor.
 
-<sup><a id="fn.4" href="#fnr.4">4</a></sup> Para m·s informaciÛn sobre las fÛrmulas de Machin, visitar
+<sup><a id="fn.4" href="#fnr.4">4</a></sup> Para m√°s informaci√≥n sobre las f√≥rmulas de Machin, visitar
 <http://en.wikipedia.org/wiki/Machin-like_formula>.
